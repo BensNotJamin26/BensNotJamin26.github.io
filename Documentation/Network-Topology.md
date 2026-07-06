@@ -4,20 +4,19 @@ This document maps out the logical and physical network layout of the enterprise
 
 ## 📊 Logical Architecture Diagram
 
-```mermaid
 graph TD
     %% Internet Edge
-    WAN[Internet / Physical Network] -->|External Interface| PF[pfSense Firewall VM]
+    WAN["Internet / Physical Network"] -->|External Interface| PF[pfSense Firewall VM]
     
     %% Firewall Routing
-    subgraph VMware Workstation Pro Hypervisor
-        PF -->|LAN Interface: 192.168.1.0/24| MGMT[Management Zone]
-        PF -->|DMZ Interface: 172.16.10.0/24| DMZ[Isolated Testing Zone]
+    subgraph VM [VMware Workstation Pro Hypervisor]
+        PF -->|"LAN Interface: 192.168.1.0/24"| MGMT[Management Zone]
+        PF -->|"DMZ Interface: 172.16.10.0/24"| DMZ[Isolated Testing Zone]
         
         %% Internal Services
-        subgraph Management Zone (192.168.1.0/24)
-            DC1[Windows Server 2025 DC<br/>HOME.HQ - 192.168.1.10]
-            Client1[Windows 11 Test Client<br/>DHCP Assigned]
+        subgraph MZ ["Management Zone (192.168.1.0/24)"]
+            DC1["Windows Server 2025 DC (HOME.HQ - 192.168.1.10)"]
+            Client1["Windows 11 Test Client (DHCP Assigned)"]
         end
     end
 
