@@ -27,4 +27,4 @@ Welcome to my hands-on systems and network lab. This environment is my personal 
 
 ## 🗂️ Repo Folders
 * `/Scripts` - My custom PowerShell automation scripts.
-* `/Documentation` - Detailed network blueprints, topology diagrams, and configuration logs.
+* [/Documentation](./Documentation/Network-Topology.md) - Detailed network blueprints, topology diagrams, and configuration logs.
