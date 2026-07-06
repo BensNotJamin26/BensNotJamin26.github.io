@@ -18,7 +18,7 @@
             border-bottom: 1px solid #eaecef;
             padding-bottom: 0.3em;
         }
-        .mermaid {
+        .diagram-container {
             background-color: #f6f8fa;
             border: 1px solid #e1e4e8;
             border-radius: 6px;
@@ -26,6 +26,10 @@
             display: flex;
             justify-content: center;
             margin-top: 15px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
         }
     </style>
 </head>
@@ -36,35 +40,9 @@
 
     <h2>📊 Logical Architecture Diagram</h2>
 
-    <!-- Dynamic Mermaid Canvas -->
-    <pre class="mermaid">
-    graph TD
-      %% Internet Edge
-      WAN["Internet / Physical Network"] -->|External Interface| PF[pfSense Firewall VM]
-
-      %% Firewall Routing
-      subgraph VM ["VMware Workstation Pro Hypervisor"]
-        PF -->|"LAN Interface: 192.168.1.0/24"| MGMT[Management Zone]
-        PF -->|"DMZ Interface: 172.16.10.0/24"| DMZ[Isolated Testing Zone]
-
-        %% Internal Services
-        subgraph MZ ["Management Zone (192.168.1.0/24)"]
-          DC1["Windows Server 2025 DC (HOME.HQ - 192.168.1.10)"]
-          Client1["Windows 11 Test Client (DHCP Assigned)"]
-        end
-      end
-
-      %% Protocol Flow
-      Client1 -->|DNS / Auth Requests| DC1
-      DC1 -->|DNS Forwarding / Gateway| PF
-      PF -->|NAT / WAN Routing| WAN
-    </pre>
-
-    <!-- Load the Mermaid engine script -->
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js';
-      mermaid.initialize({ startOnLoad: true });
-    </script>
+    <div class="diagram-container">
+        <img src="https://kroki.io/mermaid/svg/eNptkcFOwzAMhu99CstN2gS7wAEx7SABuwwSExK3atY0idIkhfHuOOnasb0gWfL_9v9bTu7VtcFwS-M29mBDoY_gU6OfwYfU-9mGvj8EExO70wY7g_v9PpiM-ASeUq_7wV1464K7Zc7V7F778GZ6e3bE1mX0Rbywz_F24uVl68W3C5YwYre2K3oW3G5867Kscu28MvWwVbF3uTL1WFWxc7mzGq0P886bK02rXGZ9mHT94D_z8vIunF95m6vFj8qZ4-mSg-3u-fALXfKOnQ==" alt="Network Topology Diagram" />
+    </div>
 
 </body>
 </html>
