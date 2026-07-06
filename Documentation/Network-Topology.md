@@ -1,74 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Network Topology & Infrastructure Architecture</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            max-width: 1012px;
-            margin: 0 auto;
-            padding: 30px;
-            color: #24292e;
-        }
-        h1 {
-            border-bottom: 1px solid #eaecef;
-            padding-bottom: 0.3em;
-        }
-        h2 {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .mermaid {
-            background-color: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            border-radius: 6px;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            margin-top: 15px;
-        }
-    </style>
-</head>
-<body>
+# Network Topology & Infrastructure Architecture
 
-    <h1>Network Topology & Infrastructure Architecture</h1>
-    <p>This document maps out the logical and physical network layout of the enterprise homelab environment.</p>
+This document maps out the logical and physical network layout of the enterprise homelab environment.
 
-    <h2>📊 Logical Architecture Diagram</h2>
+## 📊 Logical Architecture Diagram
 
-    <!-- Mermaid Render Engine Target Block -->
-    <div class="mermaid">
-    graph TD
-      %% Internet Edge
-      WAN["Internet / Physical Network"] -->|External Interface| PF[pfSense Firewall VM]
+```mermaid
+graph TD
+  %% Internet Edge
+  WAN["Internet / Physical Network"] -->|External Interface| PF[pfSense Firewall VM]
 
-      %% Firewall Routing
-      subgraph VM ["VMware Workstation Pro Hypervisor"]
-        PF -->|"LAN Interface: 192.168.1.0/24"| MGMT[Management Zone]
-        PF -->|"DMZ Interface: 172.16.10.0/24"| DMZ[Isolated Testing Zone]
+  %% Firewall Routing
+  subgraph VM ["VMware Workstation Pro Hypervisor"]
+    PF -->|"LAN Interface: 192.168.1.0/24"| MGMT[Management Zone]
+    PF -->|"DMZ Interface: 172.16.10.0/24"| DMZ[Isolated Testing Zone]
 
-        %% Internal Services
-        subgraph MZ ["Management Zone (192.168.1.0/24)"]
-          DC1["Windows Server 2025 DC (HOME.HQ - 192.168.1.10)"]
-          Client1["Windows 11 Test Client (DHCP Assigned)"]
-        end
-      end
+    %% Internal Services
+    subgraph MZ ["Management Zone (192.168.1.0/24)"]
+      DC1["Windows Server 2025 DC (HOME.HQ - 192.168.1.10)"]
+      Client1["Windows 11 Test Client (DHCP Assigned)"]
+    end
+  end
 
-      %% Protocol Flow
-      Client1 -->|DNS / Auth Requests| DC1
-      DC1 -->|DNS Forwarding / Gateway| PF
-      PF -->|NAT / WAN Routing| WAN
-    </div>
-
-    <!-- Load the Mermaid library script to render the chart dynamically -->
-    <script type="module">
-      import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.js';
-      mermaid.initialize({ startOnLoad: true });
-    </script>
-
-</body>
-</html>
+  %% Protocol Flow
+  Client1 -->|DNS / Auth Requests| DC1
+  DC1 -->|DNS Forwarding / Gateway| PF
+  PF -->|NAT / WAN Routing| WAN
