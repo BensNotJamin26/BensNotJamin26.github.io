@@ -26,5 +26,5 @@ Welcome to my hands-on systems and network lab. This environment is my personal 
 ---
 
 ## 🗂️ Repo Folders
-* `/Scripts` - My custom PowerShell automation scripts.
+* [/Scripts](./Scripts/AD-StaleAccountAuditor.ps1) - My custom PowerShell automation scripts.
 * [/Documentation](./Documentation/Network-Topology.md) - Detailed network blueprints, topology diagrams, and configuration logs.
