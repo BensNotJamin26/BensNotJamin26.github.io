@@ -1,31 +1,30 @@
-# Ben's Technical Portfolio & Enterprise Homelab
+# Ben's Portfolio & Homelab Build
 
-Welcome to my hands-on systems and network engineering portfolio. This live lab environment serves as a sandboxed testing ground for deploying, securing, and automating enterprise-grade infrastructure.
+Welcome to my hands-on systems and network lab. This environment is my personal testing ground for building, breaking, and securing enterprise-grade infrastructure.
 
-## 🛠️ Infrastructure Overview
-* **Hypervisor:** VMware Workstation Pro hosting virtualized core services.
-* **Next-Gen Firewall:** pfSense handling edge routing, DHCP, custom network interfaces, and firewall rule enforcement.
+## 🛠️ The Tech Stack
+* **Hypervisor:** VMware Workstation Pro hosting all virtual machines.
+* **Firewall/Router:** pfSense handling edge routing, DHCP, interface segmentation, and custom firewall rules.
 * **Directory Services:** Windows Server 2025 Active Directory Domain Controller (`HOME.HQ`).
 
 ---
 
-## 💻 Core Projects
+## 💻 Projects & Labs
 
-### 1. Active Directory Infrastructure & Identity Management
-* Designed and implemented a scalable Organizational Unit (OU) hierarchy to handle enterprise users, groups, and computer objects.
-* Configured Group Policy Objects (GPOs) to enforce local security baselines and account password policies.
-* **Disaster Recovery:** Successfully executed emergency offline recovery procedures on a disabled domain controller via ISO-booted command environments, restoring system integrity while ensuring strict post-incident cleanup.
+### 1. Active Directory Setup & Recovery Win
+* Set up a complete Active Directory domain from scratch, mapping out an enterprise-style OU hierarchy, managing test user accounts, and configuring GPOs for security policies.
+* **Disaster Recovery:** Ran into a lockout scenario when my main account was accidentally disabled. Instead of just wiping the VM and losing my progress, I booted into the Windows installation environment via VMware to access the offline system files. I used a trick to temporarily swap the utility manager with cmd.exe to get system-level command line access right at the login screen, flipped the account back to enabled using Active Directory Users and Computers, and then used PowerShell (`takeown` and `icacls`) to securely restore the original files and patch the loophole.
 
 ### 2. PowerShell Automation
-* Developed custom PowerShell tools to automate administrative lifecycle management.
-* *Project Featured:* **AD-StaleAccountAuditor** — A script that dynamically queries Active Directory to audit, disable, and relocate inactive user accounts across specified OUs to reduce attack surface.
+* Built a custom PowerShell script to automate cleaning up stale user accounts in the domain.
+* **AD-StaleAccountAuditor:** The script automatically queries specific OUs for accounts that haven't logged in for a set number of days, disables them to minimize the attack surface, and moves them into a dedicated "Stale Accounts" holding OU.
 
-### 3. Network Architecture & Security
-* Configured multi-interface routing paths within pfSense to isolate user traffic from core management zones.
-* Optimized domain-wide internal name resolution by configuring robust DNS forwarders, reverse lookup zones, and conditional forwarders.
+### 3. pfSense Networking & DNS
+* Configured multiple virtual interfaces inside pfSense to route and isolate traffic properly across the lab.
+* Hardened internal name resolution by setting up custom DNS forwarders, reverse lookup zones, and conditional forwarders to keep everything communicating perfectly.
 
 ---
 
-## 🗂️ Repository Structure
-* `/Scripts` - Production-ready PowerShell scripts for AD management.
-* `/Documentation` - Detailed network diagrams, topology layouts, and configuration files.
+## 🗂️ Repo Folders
+* `/Scripts` - My custom PowerShell automation scripts.
+* `/Documentation` - Detailed network blueprints, topology diagrams, and configuration logs.
