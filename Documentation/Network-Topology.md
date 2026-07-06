@@ -4,20 +4,4 @@ This document maps out the logical and physical network layout of the enterprise
 
 ## 📊 Logical Architecture Diagram
 
-```mermaid
-graph TD
-  WAN["Internet / Physical Network"] -->|External Interface| PF[pfSense Firewall VM]
-
-  subgraph VM ["VMware Workstation Pro Hypervisor"]
-    PF -->|"LAN Interface: 192.168.1.0/24"| MGMT[Management Zone]
-    PF -->|"DMZ Interface: 172.16.10.0/24"| DMZ[Isolated Testing Zone]
-
-    subgraph MZ ["Management Zone (192.168.1.0/24)"]
-      DC1["Windows Server 2025 DC (HOME.HQ - 192.168.1.10)"]
-      Client1["Windows 11 Test Client (DHCP Assigned)"]
-    end
-  end
-
-  Client1 -->|DNS / Auth Requests| DC1
-  DC1 -->|DNS Forwarding / Gateway| PF
-  PF -->|NAT / WAN Routing| WAN
+![Network Topology Diagram](https://kroki.io/mermaid/svg/eNptkcFOwzAMhu99CstN2gS7wAEx7SABuwwSExK3atY0idIkhfHuOOnasb0gWfL_9v9bTu7VtcFwS-M29mBDoY_gU6OfwYfU-9mGvj8EExO70wY7g_v9PpiM-ASeUq_7wV1464K7Zc7V7F778GZ6e3bE1mX0Rbywz_F24uVl68W3C5YwYre2K3oW3G5867Kscu28MvWwVbF3uTL1WFWxc7mzGq0P886bK02rXGZ9mHT94D_z8vIunF95m6vFj8qZ4-mSg-3u-fALXfKOnQ==)
