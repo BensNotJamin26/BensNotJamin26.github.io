@@ -4,4 +4,4 @@ This document maps out the logical and physical network layout of the enterprise
 
 ## 📊 Logical Architecture Diagram
 
-![Logical Network Architecture Diagram](network-topology.png)
+![Logical Network Architecture Diagram](../network-topology.png)
