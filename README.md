@@ -42,4 +42,5 @@ Welcome to my hands-on systems and network lab. This environment is my personal 
 ## 📁 Repo Folders
 * [./Scripts](./Scripts/AD-StaleAccountAuditor.ps1) - My custom PowerShell automation scripts.
 * [./Python-Photos](./Python-Photos) - Screenshots and visual documentation of my Python automation scripts.
+* [./Linux-Photos](./Linux-Photos) - Screenshots and visual documentation of my Linux and Nginx projects.
 * [./Documentation](./Documentation/Network-Topology.md) - Detailed network blueprints, topology diagrams, and configuration logs.
