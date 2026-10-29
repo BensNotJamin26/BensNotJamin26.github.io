@@ -26,16 +26,20 @@ Welcome to my hands-on systems and network lab. This environment is my personal 
 
 ### 4. Python System Administration & Automation
 * **Toolkit Development:** Built modular Python scripts in PyCharm focused on practical IT and system administration tasks.
-* **Disk Space Alert Generator:** Developed a monitoring script that checks available disk capacity against a defined threshold and triggers automated warnings to prevent storage exhaustion.
-* **Input Validation & Utilities:** Engineered robust command-line validation tools and interactive countdown timers to practice secure user input handling and exception management.
+* **Conditionals & Validation:** Applied logic checks (`if`/`else`) and string length checks (`len()`) to validate user input and data formats.
+* **Pricing & Logic Calculators:** Built interactive tools for automated cost and pricing logic execution.
+* **Disk Space Alert & Monitoring:** Developed scripts that calculate thresholds and issue warnings before disk exhaustion occurs.
+* **Interactive Timers:** Built countdown timers for task timing and process delays.
 
-### 5. Linux & Network Segmentation Labs
-* **VLAN Configuration & Routing:** Configured isolated network segments (including dedicated IoT VLANs) inside virtual lab environments to restrict broadcast domains and enforce security boundaries.
-* **DHCP & Firewall Policies:** Implemented custom DHCP server pools and granular firewall rules to control inter-VLAN traffic and harden the lab's perimeter.
 
----
+### 5. Linux Administration & Web Server Management
+* **User & Group Administration:** Implemented local user permissions, administrative rights, and departmental access policies.
+* **Nginx Web Server Deployment:** Configured Nginx web services, step-by-step server setup, and verified web directory structures.
+* **Troubleshooting & Flag Error Handling:** Diagnosed and documented command syntax errors, flags, and system responses during terminal configuration.
+* **System Monitoring & Script Add-ons:** Integrated custom monitoring tools and script add-ons to track live Linux system metrics.
+
 
 ## 📁 Repo Folders
 * [./Scripts](./Scripts/AD-StaleAccountAuditor.ps1) - My custom PowerShell automation scripts.
-* [./Python](./Python) - Custom Python system administration scripts and automation tools.
+* [./Python-Photos](./Python-Photos) - Screenshots and visual documentation of my Python automation scripts.
 * [./Documentation](./Documentation/Network-Topology.md) - Detailed network blueprints, topology diagrams, and configuration logs.
